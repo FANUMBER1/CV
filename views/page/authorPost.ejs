@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Xtra Blog</title>
+    <%-include('../common/css.ejs')%>
+<!--
+    
+TemplateMo 553 Xtra Blog
+
+https://templatemo.com/tm-553-xtra-blog
+
+-->
+</head>
+<body>
+    <%-include('../common/header.ejs')%>
+
+    <div class="container-fluid">
+        <main class="tm-main">       
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="tm-color-primary tm-post-title tm-mb-60">Contact Us</h2>
+                </div>
+                <div class="col ml-0 pl-0 tm-contact-left">
+                    <form method="POST" action="/writerpost" enctype="multipart/form-data">                        
+                        <div class="form-group row mb-4">
+                            <label for="name" class="col-sm-1 col-form-label text-right tm-color-primary">Name</label>
+                            <div class="col-sm-5">
+                                <input class="form-control mr-0 ml-auto" name="name"  id="name" value="" type="text" required>                            
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label for="name" class="col-sm-1 col-form-label text-right tm-color-primary">time</label>
+                            <div class="col-sm-5">
+                                <input class="form-control mr-0 ml-auto" name="time"  id="name" value="" type="text" required>                            
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label for="email" class="col-sm-1 col-form-label text-right tm-color-primary">JoB</label>
+                            <div class="col-sm-5">
+                                <div class="form-control mr-0 ml-auto" name="posision"  id="email"  required> <%= author[0].job %> </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label for="message" class="col-sm-1 col-form-label text-right tm-color-primary">Img</label>
+                            <div class="col-sm-5 ml-3 custom-file">  
+                                <input type="file" class="custom-file-input" id="message" name="img">  
+                                <label class="custom-file-label" for="message">Choose File</label>  
+                            </div>
+                          </div>
+                        <div class="form-group row mb-4">
+                            <label for="subject" class="col-sm-1 col-form-label text-right tm-color-primary">Author</label>
+                            <div class="col-sm-5">
+                                <div class="form-control mr-0 ml-auto" name="author" value="" id="subject" type="text" required> <%= author[0].name %></div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label for="message" class="col-sm-1 col-form-label text-right tm-color-primary">Describe</label>
+                            <div class="col-sm">
+                                <textarea class="form-control mr-0 ml-auto" name="describe" id="message" rows="8" required></textarea>                                
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label for="message" class="col-sm-1 col-form-label text-right tm-color-primary">Content</label>
+                            <div class="col-sm">
+                                <textarea class="form-control mr-0 ml-auto" name="content" id="message" rows="8" required></textarea>                                
+                            </div>
+                        </div>
+                        <div class=" form-group row mb-4   ">
+                            <label for="message" class="col-sm-1 col-form-label text-right tm-color-primary">Categori</label>
+                            <div class=" col ml-3 d-flex  " >
+                            <div class="row">
+                            <% for(var i=0; i < dataCategori.length ;i ++){%>
+                              <div class="col-3">
+                                <input type="checkbox" id="hobbies" name="categori" value="<%= dataCategori[i].id %>">
+                                <label for="hobbies">
+                                  <%= dataCategori[i].name %>
+                                </label>
+                              </div>
+                              <%}%>
+                            </div>
+                            </div>
+                          </div>
+                        <div class="form-group row text-right">
+                            <div class="col-12">
+                                <button type="submit" class="tm-btn tm-btn-primary tm-btn-small">Submit</button>                        
+                            </div>                            
+                        </div>                                
+                    </form>
+                </div>
+            </div>      
+            <footer class="row tm-row">
+                <div class="col-md-6 col-12 tm-color-gray">
+                    Design: <a rel="nofollow" target="_parent" href="https://templatemo.com" class="tm-external-link">TemplateMo</a>
+                </div>
+                <div class="col-md-6 col-12 tm-color-gray tm-copyright">
+                    Copyright 2020 Xtra Blog Company Co. Ltd.
+                </div>
+            </footer>
+        </main>
+    </div>
+    <%-include('../common/js.ejs')%></body>
+</body>
+</html>

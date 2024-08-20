@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:1@localhost:5432/blog/mydb?schema=public"
+}
+
+model blog{
+  id Int  @id @default(autoincrement())
+  name String?
+  content String?
+  describe String?
+  address String?
+  phone String?
+  email String?
+  img String?
+}
+model purpose{
+  id Int  @id @default(autoincrement())
+  img String?
+  name String?
+  describe String?  
+}
+model comment{
+  id Int  @id @default(autoincrement())
+  content String?
+  time String?
+  users user @relation(fields: [userid], references: [id])
+  userid Int
+  post posts @relation(fields: [postid], references: [id])
+  postid Int
+}
+model posts{
+  id Int  @id @default(autoincrement())
+  name String?
+  content String?
+  describe String?
+  categoriss post_categori[]
+  time String?
+  img String?
+  user user @relation(fields: [userid], references: [id])
+  userid Int
+  comments comment[]
+
+}
+model categori{
+  id Int  @id @default(autoincrement())
+  name String?
+  postss post_categori[]
+}
+model soicial{
+  id Int  @id @default(autoincrement())
+  name String?
+  img String?
+  link String?
+}
+
+model contact{
+  id Int  @id @default(autoincrement())
+  name String?
+  email String?
+  Subject String?
+  Message String?
+}
+
+model user{
+  id Int  @id @default(autoincrement())
+  name String?
+  avata String?
+  email String?
+  pass  String?
+  roles role @relation(fields: [roleid], references: [id])
+  roleid Int
+  comments comment[]
+  postss posts[]
+  position String?
+  describe String?
+}
+model post_categori{
+  posts posts @relation(fields: [postid], references: [id])
+  postid Int
+  categori categori @relation(fields: [categorid], references: [id])
+  categorid Int
+  @@id([postid, categorid])
+}
+
+model role{
+  id Int  @id @default(autoincrement())
+  users user[]
+  position String?
+}

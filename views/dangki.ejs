@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min2.css">
+  <script src="/assets/js/bootstrap.min2.js" type="text/javascript"></script>
+  <title>ĐĂNG kÍ</title>
+</head>
+
+<body>
+  <div class="back">
+    <div class="div-center1">
+      <div class="content">
+        <h3>ĐĂNG KÍ TÀI KHOẢN</h3>
+        <hr />
+        <form action="/dangki1" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Tên Đăng Nhập</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tên Đăng Nhập" name="name">
+            <% if(check==0){ %>
+              <p style="color:red;" class="text-start"> Tài khoản không để trống. </p>
+              <% }%> </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Tài khoản Gmail</label>
+                  <input type="text" class="form-control" id="Gmail" placeholder="Gmail" name="taikhoan">
+                  <% if (check==3) { %>
+                    <p style="color:red">Gmail không đúng!</p>
+                  <%}%>
+                  <% if(check==0){ %>
+                    <p style="color:red;" class="text-start"> Gmail không để trống. </p>
+                    <% }else{%>
+                      <% if (check==1){%>
+                        <p style="color:red;" class="text-start"> Gmail này đã được đăng kí. </p>
+                        <%}%>
+                          <%}%>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Mật Khẩu</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mật Khẩu" name="pass">
+                  <% if(check==0){ %>
+                    <p style="color:red;" class="text-start"> Mật khẩu không để trống. </p>
+                    <% } %>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Logo</label>
+                  <input class="form-control" id="exampleInputPassword1" type="file" name="img">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Giới thiệu bản thân </label>
+                  <textarea class="form-control" id="exampleInputPassword1" name="describe"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Công việc</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" name="position">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng Ký</button>
+                <hr />
+                <button type="button" class="btn btn-link"><a href="/login">Đăng nhập</a></button>
+        </form>
+      </div>
+      </span>
+    </div>
+</body>
+
+</html>

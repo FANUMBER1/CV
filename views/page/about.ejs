@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Xtra Blog</title>
+    <%-include('../common/css.ejs')%>
+<!--
+    
+TemplateMo 553 Xtra Blog
+
+https://templatemo.com/tm-553-xtra-blog
+
+-->
+</head>
+<body>
+	<%-include('../common/header.ejs')%>
+    <div class="container-fluid">
+        <main class="tm-main">
+            <!-- Search form -->
+            <div class="row tm-row">
+                <div class="col-12">
+                    <form method="GET" class="form-inline tm-mb-80 tm-search-form">                
+                        <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..." aria-label="Search">
+                        <button class="tm-search-button" type="submit">
+                            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+                        </button>                                
+                    </form>
+                </div>                
+            </div>            
+            <div class="row tm-row tm-mb-45">
+                <div class="col-12">
+                    <hr class="tm-hr-primary tm-mb-55">
+                    <img src="<%= dataprofile[0].img %>" alt="Image" class="img-fluid">
+                </div>
+            </div>
+            <div class="row tm-row tm-mb-40">
+                <div class="col-12">                    
+                    <div class="mb-4">
+                        <h2 class="pt-2 tm-mb-40 tm-color-primary tm-post-title"><%= dataprofile[0].name %></h2>
+                        <p>
+                            <%= dataprofile[0].content %>
+                        </p>                            
+                    </div>                    
+                </div>
+            </div>
+            <div class="row tm-row tm-mb-120">
+                <% for(var i=0; i< datapurpose.length ; i++){%>
+                <div class="col-lg-4 tm-about-col">
+                    <div class="tm-bg-gray tm-about-pad">
+                        <div class="text-center tm-mt-40 tm-mb-60">
+                            <i class="<%= datapurpose[i].img %>"></i>                            
+                        </div>                        
+                        <h2 class="mb-3 tm-color-primary tm-post-title"><%= datapurpose[i].name %></h2>
+                        <p class="mb-0 tm-line-height-short">
+                            <%= datapurpose[i].describe %>
+                        </p>
+                    </div>
+                </div>
+                <%}%>
+            </div>            
+            <div class="row tm-row tm-mb-60">
+                <div class="col-12">
+                    <hr class="tm-hr-primary  tm-mb-55">
+                </div>    
+                <% for(var i=0; i < datafounder.length ; i++){%>           
+                <div class="col-lg-6 tm-mb-60 tm-person-col">
+                    <div class="media tm-person">
+                        <img src="<%= datafounder[i].avata %>" alt="Image" class="img-fluid mr-4">
+                        <div class="media-body">
+                            <h2 class="tm-color-primary tm-post-title mb-2"><%= datafounder[i].name %></h2>
+                            <h3 class="tm-h3 mb-3"><%= datafounder[i].position %></h3>
+                            <p class="mb-0 tm-line-height-short">
+                                <%= datafounder[i].describe %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <%}%>       
+            <footer class="row tm-row">
+                <div class="col-md-6 col-12 tm-color-gray">
+                    Design: <a rel="nofollow" target="_parent" href="https://templatemo.com" class="tm-external-link">TemplateMo</a>
+                </div>
+                <div class="col-md-6 col-12 tm-color-gray tm-copyright">
+                    Copyright 2020 Xtra Blog Company Co. Ltd.
+                </div>
+            </footer>
+        </main>
+    </div>
+    <%-include('../common/js.ejs')%></body>
+</body>
+</html>
