@@ -46,8 +46,8 @@ app.use((req, res, next) => {
 });
 ///ROUTER
 app.use('/',viewRouter)
-app.use('/admin',middlewea.requireLogin,middlewea.checkAdmin,adminRouter)
-
+app.use('/admin',adminRouter)
+// ,middlewea.requireLogin,middlewea.checkAdmin
 ///////////
 app.listen(port,()=> {
     console.log(`Server is running on http://localhost:${port}`);

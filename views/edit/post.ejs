@@ -45,16 +45,16 @@
       <div class="row text-center">
         <h1>EDIT POST </h1>
       </div>
-      <form action="/admin/edit-post/<%= data[0].id %>" method="post" enctype="multipart/form-data">
+      <form action="/admin/edit-post/<%= data.id %>" method="post" enctype="multipart/form-data">
         <div class="row justify-content-center">
           <div class="col-10 border border-dark rounded p-3 ">
             <div class="row mb-5 overflow-hidden ">
               <div class="form-group">
                 <label for="email">Author</label>
-                <select class="form-select" aria-label="Default select example" value="<%=data[0].author %>"
+                <select class="form-select" aria-label="Default select example" value="<%=data.user.id %>"
                   name="author">
                   <% for (var i=0 ; i < dataauthor.length; i++) {%>
-                    <% if(data[0].author==dataauthor[i].name){%>
+                    <% if(data.user.name==dataauthor[i].name){%>
                       <option selected value="<%=dataauthor[i].id %>">
                         <%= dataauthor[i].name %>
                       </option>
@@ -68,32 +68,32 @@
               </div>
               <div class="form-group">
                 <label>Post name</label>
-                <input type="text" class="form-control" id="email" value="<%= data[0].name %>" name="name">
+                <input type="text" class="form-control" id="email" value="<%= data.name %>" name="name">
               </div>
               <div class="form-group">
                 <lable>Img</lable>
                 <div class="col-sm-offset-1 col-sm-5">
                   <div class="single-about-img">
-                    <img src="<%= data[0].img %>" class="card-img-top img-fluid" alt="profile_image">
+                    <img src="<%= data.img %>" class="card-img-top img-fluid" alt="profile_image">
                   </div>
                 </div>
                 <input type="file" name="img">
               </div>
               <div class="form-group">
                 <label>Time</label>
-                <input type="text" class="form-control" id="email" value="<%= data[0].time %>" name="time">
+                <input type="text" class="form-control" id="email" value="<%= data.time %>" name="time">
               </div>
               <div class="form-group">
                 <label for="email">
                   <h6>Content </h6>
                 </label>
-                <textarea type="text" class="form-control" id="email" name="content"><%= data[0].content %></textarea>
+                <textarea type="text" class="form-control" id="email" name="content"><%= data.content %></textarea>
               </div>
               <div class="form-group">
                 <label for="email">
                   <h6>Describe </h6>
                 </label>
-                <textarea type="text" class="form-control" id="email" name="describe"><%= data[0].describe %></textarea>
+                <textarea type="text" class="form-control" id="email" name="describe"><%= data.describe %></textarea>
               </div>
               <div class="form-group">
                 <label for="email">
@@ -103,8 +103,8 @@
                   <% for(var i=0; i < datacategori.length ;i ++){%>
                     <div class="col-2">
                       <% var check=0; %>
-                        <% for(var j=0; j < categori.length ;j ++){%>
-                          <% if(categori[j].name==datacategori[i].name){%>
+                        <% for(var j=0; j < categori.categoriss.length ;j ++){%>
+                          <% if(categori.categoriss[j].categori.name==datacategori[i].name){%>
                             <% check=1; %>
                               <%}%>
                                 <%}%>
@@ -116,7 +116,7 @@
                                     </label>
                                     <%}else{%>
                                       <input type="checkbox" id="hobbies" name="categori"
-                                        value="<%= datacategori[i].id %>">
+                                        value="<%=datacategori[i].id %>">
                                       <label for="hobbies">
                                         <%= datacategori[i].name %>
                                       </label>

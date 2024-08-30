@@ -26,7 +26,6 @@ module.exports={
         const iduser=parseInt(req.session.userId)       
         const idpost=parseInt(req.params.idpost)||3;
         const content=req.body.content
-        console.log(iduser)
         const creat= await usermodel.comment(iduser,idpost,content);
         const link='/post/'+idpost
         res.redirect(link)

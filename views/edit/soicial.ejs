@@ -37,23 +37,23 @@
     <div class="row text-center">
       <h1>EDIT SOICIAL </h1> 
     </div>
-    <form action="/admin/edit-soicial/<%=data[0].id %>" method="post" enctype="multipart/form-data">
+    <form action="/admin/edit-soicial/<%=data.id %>" method="post" enctype="multipart/form-data">
     <div class="row justify-content-center">
         <div class="col-5 border border-dark rounded p-3 ">
            <div class="row mb-5 overflow-hidden ">
               <div class="form-group">
                  <label>Name soicial</label>
-                 <input type="text" class="form-control" id="email" value="<%= data[0].name %>" name="name">
+                 <input type="text" class="form-control" id="email" value="<%= data.name %>" name="name">
               </div>
               <div class="form-group">
                  <label>Link</label>
-                 <input type="text" class="form-control" id="email" value="<%= data[0].link %>" name="link">
+                 <input type="text" class="form-control" id="email" value="<%= data.link %>" name="link">
               </div>  
               <div class="form-group">
                 <lable>Logo</lable>
                 <div class="col-sm-offset-1 col-sm-5">
                   <div class="single-about-img">
-                    <img src="<%= data[0].img %>"class="card-img-top img-fluid" alt="profile_image">
+                    <img src="<%= data.img %>"class="card-img-top img-fluid" alt="profile_image">
                 </div>  
                 </div>
                 <input type="file" name="img" >

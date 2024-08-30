@@ -63,14 +63,14 @@
                       <%= i %>
                     </td>
                     <td>
-                      <%= data[i].name %>
+                      <%= data[i].users.name %>
                     </td>
-                    <td><a class="nav-link text-primary" href="/post/<%=data[i].idpost%>">
-                        <%= data[i].namepost%>
+                    <td><a class="nav-link text-primary" href="/post/<%=data[i].post.id%>">
+                        <%= data[i].post.name%>
                       </a></td>
                     <td><a class="nav-link text-primary" href="<%= data[i].avata %>">img</a></td>
-                    <td class="d-flex"><a class="nav-link text-dark" href="/admin/edit-comment/1"> Edit /<a
-                          class="nav-link text-dark" href="/admin/delete-comment/1"> Xóa</a></a></td>
+                    <td class="d-flex"><a class="nav-link text-dark" href="/admin/edit-comment/<%=data[i].id%>"> Edit /<a
+                          class="nav-link text-dark" href="/admin/delete-comment/<%=data[i].id%>"> Xóa</a></a></td>
                   </tr>
                   <%}%>
               </tbody>

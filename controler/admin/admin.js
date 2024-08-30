@@ -72,6 +72,8 @@ module.exports={
     pageEditPurpose:async(req,res)=>{
         const id=parseInt(req.params.ID);
         const data= await adminmodel.pageEditPurpose(id)
+        console.log(id)
+
         res.render('./edit/purpose',{data:data})
     },
     editPurpose:async(req,res)=>{
@@ -109,6 +111,8 @@ module.exports={
     },
     pageEditPost:async(req,res)=>{
         const id=parseInt(req.params.IDPost);
+        console.log(2)
+        console.log(id)
         const data= await adminmodel.pageEditPost(id);
         const datacategori= await adminmodel.categori()
         const datacategoriposst= await adminmodel.datacategori(id)
@@ -118,15 +122,17 @@ module.exports={
     editPost:async(req,res)=>{
         const id=parseInt(req.params.ID);
         const author=parseInt(req.body.author);
+        console.log(author)
         const name=req.body.name;
-        const data= await adminmodel.editPost(id)
+        const data= await adminmodel.pageEditPost(id)
         const anh=req.file;
         const img= await adminmodel.img(anh,data)        
         const content=req.body.content;
         const describe=req.body.describe;
+        console.log(1)
+        console.log(name)
         const categori=req.body.categori;
         const time=req.body.time
-        console.log(author)
         const creat= await adminmodel.editPost(id,author,name,img,content,describe,categori,time);
         res.redirect('/admin/POST')
     },
@@ -170,9 +176,7 @@ module.exports={
         const taikhoan=req.body.taikhoan;
         const pass0=req.body.pass;
         const data= await adminmodel.pageEditInforUser(id)
-        console.log(data)
         const anh=req.file;
-        console.log(anh)
         const img= await adminmodel.img(anh,data)
         const role=parseInt(req.body.position);
         const edit= await adminmodel.editInforUser(id,name,taikhoan,pass0,img,role)
@@ -195,7 +199,6 @@ module.exports={
     },
     pageEditRole:async(req,res)=>{
         const id=parseInt(req.params.ID);
-        console.log(id)
         const data= await adminmodel.pageEditRole(id)
         res.render('./edit/inforRole',{data:data})
     },
@@ -254,7 +257,7 @@ module.exports={
     },
     pageEditComment:async(req,res)=>{
         const id=parseInt(req.params.ID)
-        const data= await adminmodel.commentpost(id)
+        const data= await adminmodel.pagepost(id)
         res.render('./edit/comment',{data:data})
     },
     editComment:async(req,res)=>{

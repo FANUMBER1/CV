@@ -37,13 +37,13 @@
     <div class="row text-center">
       <h1>EDIT CATEGORI </h1> 
     </div>
-    <form action="/admin/edit-categori/<%= data[0].id %>" method="post">
+    <form action="/admin/edit-categori/<%= data.id %>" method="post">
     <div class="row justify-content-center">
         <div class="col-5 border border-dark rounded p-3 ">
            <div class="row mb-5 overflow-hidden ">
               <div class="form-group">
                  <label>Name categori</label>
-                 <input type="text" class="form-control" id="email" value="<%= data[0].name %>" name="name">
+                 <input type="text" class="form-control" id="email" value="<%= data.name %>" name="name">
               </div>
                <button type="submit" class="btn btn-default btn-dark mt-2 mb-2 " >UPDATE</button>
                <button type="button" class="btn btn-dark btn-default " ><a href="/admin/CATEGORI" class="nav-link text-white" >RETURN</a></button>
