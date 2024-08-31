@@ -109,9 +109,9 @@ module.exports={
         const data= await adminmodel.post();
         res.render('post',{data:data})   
     },
-    pageEditPost:async(req,res)=>{
+    pageEditPos:async(req,res)=>{
         const id=parseInt(req.params.IDPost);
-        console.log(2)
+        console.log(1)
         console.log(id)
         const data= await adminmodel.pageEditPost(id);
         const datacategori= await adminmodel.categori()
@@ -121,18 +121,17 @@ module.exports={
     },
     editPost:async(req,res)=>{
         const id=parseInt(req.params.ID);
+        console.log(id)
         const author=parseInt(req.body.author);
-        console.log(author)
         const name=req.body.name;
         const data= await adminmodel.pageEditPost(id)
         const anh=req.file;
         const img= await adminmodel.img(anh,data)        
         const content=req.body.content;
         const describe=req.body.describe;
-        console.log(1)
-        console.log(name)
         const categori=req.body.categori;
         const time=req.body.time
+        console.log(2)
         const creat= await adminmodel.editPost(id,author,name,img,content,describe,categori,time);
         res.redirect('/admin/POST')
     },
@@ -154,8 +153,7 @@ module.exports={
         res.redirect('/admin/POST')   
     },
     deletePost:async(req,res)=>{
-        const id=parseInt(req.params.ID);
-        console.log(id)
+        const id=parseInt(req.params.ID)
         const del= await adminmodel.deletePost(id)
         res.redirect('/admin/POST')
     },
@@ -231,7 +229,7 @@ module.exports={
         res.render('./edit/soicial',{data:data})
     },
     editSoicial:async(req,res)=>{
-        const id=parseInt(req.params.ID);
+        const id=parseInt(req.params.ID)
         const name=req.body.name;
         const link=req.body.link;
         const img='/assets/upload/'+req.file.filename

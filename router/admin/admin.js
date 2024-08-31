@@ -31,7 +31,7 @@ router.post('/create-purpose',upload.single("img"),adminControler.createPurpose)
 router.get('/delete-purpose/:ID',adminControler.deletePurpose)
 ////////POST
 router.get('/POST',adminControler.post)
-router.get('/edit-post/:IDPost',adminControler.pageEditPost)
+router.get('/edit-post/:IDPost',adminControler.pageEditPos)
 router.post('/edit-post/:ID',upload.single("img"),adminControler.editPost)
 router.get('/create-post',adminControler.pageCreatePost)
 router.post('/create-post',upload.single("img"),adminControler.createPost)

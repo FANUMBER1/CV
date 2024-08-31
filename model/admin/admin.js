@@ -123,6 +123,7 @@ module.exports={
        return data;
     },
     pageEditPost:async(id)=>{
+        console.log(2)
         const data = await prisma.posts.findUnique({
             where:{id:id},
             select:{
@@ -139,10 +140,12 @@ module.exports={
                     }
                 }
             }
-        })        
+        })      
+        console.log(4)  
          return data;
     },
     datacategori:async(id)=>{
+        console.log(5)
         const data = await prisma.posts.findUnique({
             where:{id:id},
             select:{
@@ -161,7 +164,8 @@ module.exports={
          return data;
     },
     editPost:async(id,author,name,img,content,describe,categori,time)=>{
-        console.log(author)
+        console.log(3)
+        console.log(id)
         const data= await prisma.posts.update({
             where:{id:id},
             data:{
@@ -429,7 +433,10 @@ module.exports={
     },
     editCategori:async(id,name)=>{
         const update=await prisma.categori.update({
-            name :`${name}`
+            where:{id:id},
+            data:{
+                name :`${name}`
+            }
         })
     },
     createCategori:async(name)=>{
